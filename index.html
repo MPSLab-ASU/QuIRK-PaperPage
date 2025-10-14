@@ -1,0 +1,183 @@
+---
+layout: default
+title: Home
+---
+<!-- As a heading -->
+
+<div class="container" style="margin-top:5rem;">
+
+    <div id="Header">
+        <h1 class="display-1 page-title">{{site.paper_name}}</h1>
+        <ul class="authors-list list-inline">
+            {%for author in site.data.authors%}
+                <li class="list-inline-item"><a href="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    {{author.name}}{%- if author.primary == true -%}*{%- endif -%}
+                </a></li>
+            {%endfor%}
+        </ul>
+        <figcaption class="blockquote-footer text-center">
+            * Indicates Primary Authors 
+        </figcaption>
+
+        <ul class="org-list list-unstyled text-center">
+            {%- if site.sub_organization -%}
+                <li>{{site.sub_organization}}</li>
+            {%- endif -%}
+            {%- if site.organization -%}
+                <li>{{site.organization}}</li>
+            {%- endif -%}
+        </ul>   
+        
+        <ul class="resource-list list-inline">
+            {%- if site.IEEE -%}
+                <li><a role="button" href="{{site.IEEE}}" class="btn btn-primary rounded-pill" style="border-color: #17445A;background-color: #17445A">
+                    <i class="ai ai-ieee-square"></i> <b> IEEE </b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
+            {%- if site.ACM -%}
+                <li><a role="button" href="{{site.ACM}}" class="btn btn-primary rounded-pill" style="border-color: #28568C;background-color: #28568C">
+                    <i class="ai ai-acm-square "></i> <b> ACM </b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
+            {%- if site.arXiv -%}
+                <li><a role="button" href="{{site.arXiv}}" class="btn btn-danger rounded-pill" style="background-color: #B31B1B">
+                    <i class="ai ai-arxiv-square"></i> <b> ArXiv</b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
+            {%- if site.code -%}
+                <li><a role="button" href="{{site.code}}" class="btn btn-secondary rounded-pill" style="background-color: #242424;">
+                    <i class="devicon-github-original"></i><b> Code</b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
+            {%- if site.paper_pdf -%}
+                <li><a role="button" href="{{site.paper_pdf}}" class="btn btn-primary rounded-pill">
+                    <i class="fa fa-file-pdf-o"></i><b> Paper</b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
+            {%- if site.supplementary_pdf -%}
+                <li><a role="button" href="{{site.supplementary_pdf}}" class="btn btn-primary rounded-pill">
+                    <i class="far fa-file-pdf"></i><b> Paper</b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
+        </ul>
+    </div>
+
+    <div class="abstract">
+        <h2>Abstract</h2>
+        <div class="abstract-text">
+            {% capture content %}{% include_relative paper_components/abstract.md %}{% endcapture %}
+            {{ content | markdownify }}
+        </div>
+    </div>    
+
+    {%- if site.main_media -%}
+    <div class="media">
+        <figure class="figure">
+            <img src="{{site.main_media.source}}" class="figure-img img-fluid rounded" alt="...">
+            <figcaption class="figure-caption"><b>Figure:</b> {{site.main_media.caption}}</figcaption>
+        </figure>
+    </div>
+    {%- endif -%}
+
+    {%- if site.data.figures[1].caption -%}
+        <div id="Media_Carousel">
+            <hr class="dotted">
+            <h2 class="component-title">Important Figures</h2>
+            <div id="figureCarosel" class="carousel carousel-dark slide" data-ride="carousel" data-bs-interval="false">
+            <div class="carousel-inner">
+                {% for figure in site.data.figures %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="media">
+                    <figure>
+                        <img src="assets/images/{{figure.filename}}" class="figure-img img-fluid rounded">
+                        <figcaption><b>Figure: </b>{{ figure.caption | markdownify}}</figcaption>
+                    </figure>
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#figureCarosel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#figureCarosel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        </div>
+    {%- endif -%}
+
+    <div id="Components">
+        <hr class="dotted">
+            <h2 class="component-title">Paper Details</h2>
+            <div class="md-block" markdown=1>
+                {% capture content %}{% include_relative paper_components/description.md %}{% endcapture %}
+                {{ content | markdownify }}
+            </div>
+    </div>
+    
+    <hr class="dotted">
+    <div id="BibTex">
+            <h2>Bibtex</h2>
+            <div class="bibtex md-block" markdown=1>
+                {% capture content %}{% include_relative paper_components/bibtex_ref.md %}{% endcapture %}
+                {{ content | markdownify }}
+            </div>
+    </div>
+    <hr>
+</div>
+
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Author Details</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="list-group authors">
+            {%for author in site.data.authors%}
+                <li class="list-group-item">
+                    <div class="card text-center mb-3">
+                        <div class="card-body">
+                            <h6 class="card-title">{{author.name}}</h6>
+                            {%- if author.primary == true -%}<span class="badge bg-secondary">Primary</span>{%- endif -%}
+                            <ul class="org-list list-unstyled text-center">
+                                {%- if author.position -%}
+                                    <li>{{author.position}}</li>
+                                {%- endif -%}
+                                {%- if author.sub_organization -%}
+                                    <li>{{author.sub_organization}}</li>
+                                {%- endif -%}
+                                {%- if author.organization -%}
+                                    <li>{{author.organization}}</li>
+                                {%- endif -%}
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            {%- if author.email -%}
+                                <a href="mailto:{{author.email}}"><i class="fa fa-envelope-o"></i></a>&nbsp; &nbsp; 
+                            {%- endif -%} 
+                            {%- if author.linkedin -%}
+                                <a href="https://www.linkedin.com/in/{{author.linkedin}}"><i class="devicon-linkedin-plain colored"></i></a>&nbsp; &nbsp; 
+                            {%- endif -%} 
+                            {%- if author.github -%}
+                                <a href="https://github.com/{{author.github}}"><i class="devicon-github-plain colored"></i></a>&nbsp; &nbsp; 
+                            {%- endif -%}
+                            {%- if author.orcid -%}
+                                <a href="{{author.orcid}}"><i class="ai ai-orcid"></i></a>&nbsp; &nbsp; 
+                            {%- endif -%}
+                            {%- if author.google_scholar -%}
+                                <a href="{{author.google_scholar}}"><i class="ai ai-google-scholar-square"></i></a>&nbsp; &nbsp; 
+                            {%- endif -%}
+                            {%- if author.website -%}
+                                <a href="{{author.website}}"><i class="fa fa-globe"></i></a>&nbsp; &nbsp; 
+                            {%- endif -%}
+                        </div>
+                    </div>
+                </li>
+            {%endfor%}
+        </ul>
+    </div>
+</div>

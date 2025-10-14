@@ -1,0 +1,20 @@
+- name: Vinayak Sharma
+  github: vinayak19th
+  linkedin: vinayak19th
+  email: vsharm87@asu.edu
+  position: MS in CS
+  organization: Arizona State University
+  sub_organization: School of Computing and Augmented Intelligence
+  website: vinayak19th.github.io
+  orcid: https://orcid.org/0009-0009-5633-4003
+  primary: true
+
+- name: Shail Dave
+  position: PhD 
+  github: shail-dave
+  email: Shail.Dave@asu.edu 
+  linkedin: daveshail
+  organization: Arizona State University
+  sub_organization: School of Computing and Augmented Intelligence
+  google_scholar: https://scholar.google.com/citations?hl=en&user=SVft2R0AAAAJ&view_op=list_works
+  website: https://sites.google.com/view/shail/

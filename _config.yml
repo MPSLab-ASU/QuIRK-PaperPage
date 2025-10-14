@@ -1,0 +1,57 @@
+######################## Paper Information ########################################
+# Personal info
+paper_name: "MPS-LAB Paper Page Template"
+
+organization: Arizona State University 
+sub_organization: School of Computing and Augmented Intelligence 
+preprint : True # Set true if pre-print. False otherwise
+
+######################## Paper Resources ########################################
+
+paper_pdf: https://dl.acm.org/doi/pdf/10.1145/3358198 # Main PDF Link here
+# supplementary_pdf: Supplementary PDF here
+code: https://github.com/MPSLab-ASU/Project_Page_Template # GitHub link here
+arXiv : https://arxiv.org/abs/1512.01274 # ArXiV Publication Link Here
+IEEE: https://ieeexplore.ieee.org/document/9187262 # IEEE Publication Link Here
+#ACM: ACM Publication Link Here
+# Additional icon links
+
+favicon: assets/images/MPS_Lab.ico
+
+main_media:
+  source: https://labs.engineering.asu.edu/mps-lab/wp-content/uploads/sites/8/2019/12/dataflow-accelerators-768x251.png
+  caption: Executing applications on dataflow accelerators require explicit management of computational, communication, and memory resource
+
+
+
+######################## DO NOT EDIT BELOW THIS LINE ########################################
+
+# Footer
+footer_show_references: true
+
+#sass
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-coffeescript
+
+
+markdown: kramdown
+permalink: pretty
+
+exclude : [
+  "Gemfile",
+  "Gemfile.lock",
+  "node_modules",
+  "vendor/bundle/",
+  "vendor/cache/",
+  "vendor/gems/",
+  "vendor/ruby/",
+  "lib/",
+  "scripts/",
+  "docker-compose.yml",
+  "README.md",
+  ]
