@@ -8,7 +8,7 @@ preprint: True # Set true if pre-print. False otherwise
 
 ######################## Paper Resources ########################################
 
-paper_pdf: https://dl.acm.org/doi/pdf/10.1145/3358198 # Main PDF Link here
+paper_pdf: https://arxiv.org/pdf/2510.08650 # Main PDF Link here
 # supplementary_pdf: Supplementary PDF here
 # code: https://github.com/MPSLab-ASU/Project_Page_Template # GitHub link here
 arXiv: https://arxiv.org/abs/2510.08650 # ArXiV Publication Link Here
