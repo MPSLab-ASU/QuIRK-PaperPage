@@ -2,19 +2,70 @@
   github: vinayak19th
   linkedin: vinayak19th
   email: vsharm87@asu.edu
-  position: MS in CS
+  position: PhD, Computer Science
   organization: Arizona State University
   sub_organization: School of Computing and Augmented Intelligence
-  website: vinayak19th.github.io
+  website: https://www.vinayak19th.me/
   orcid: https://orcid.org/0009-0009-5633-4003
   primary: true
+  google_scholar: https://scholar.google.com/citations?user=r763skMAAAAJ&hl=en
 
-- name: Shail Dave
-  position: PhD 
-  github: shail-dave
-  email: Shail.Dave@asu.edu 
-  linkedin: daveshail
+- name: Ashish Padhy
+  github: Shurtu-gal
+  linkedin: ashish-padhy3023
+  email: ashishpadhy1729@gmail.com
+  position: B.Tech, CSE
+  organization: National Institute of Technology, Rourkela
+  sub_organization: Computer Science and Engineering
+  orcid: https://orcid.org/0009-0004-4552-1405
+  website: https://github.com/Shurtu-gal
+  primary: false
+
+- name: Lord Sen
+  github: Lord3008
+  linkedin: lord-sen-2a92a22b3
+  email: 123cs0226@nitrkl.ac.in
+  position: B.Tech, CSE
+  organization: National Institute of Technology, Rourkela
+  sub_organization: Department of Computer Science and Engineering
+  google_scholar: https://scholar.google.com/citations?user=3Dr3IesAAAAJ&hl=en
+  orcid: https://orcid.org/my-orcid?orcid=0009-0005-3713-2319
+  website: https://lords-profile.vercel.app/
+  primary: false
+
+- name: Vijay Karanjkar
+  github: Lord3008
+  linkedin: vijay-k-2003
+  email: vkaranjk@asu.edu
+  position: MS, Computer Science
   organization: Arizona State University
   sub_organization: School of Computing and Augmented Intelligence
-  google_scholar: https://scholar.google.com/citations?hl=en&user=SVft2R0AAAAJ&view_op=list_works
-  website: https://sites.google.com/view/shail/
+  primary: false
+
+- name: Sourav Behera
+  github: sourav-behera
+  linkedin: sourav-behera-084a9a227/?trk=people-guest_people_search-card&originalSubdomain=in
+  email: souravdipu2002@gmail.com
+  position: B.Tech, CSE
+  organization: National Institute of Technology, Rourkela
+  sub_organization: Computer Science and Engineering
+  primary: false
+
+- name: Dr. Shyamapada Mukherjee
+  linkedin: dr-shyamapada-mukherjee-97869369/?originalSubdomain=in
+  email: mukherjees@nitrkl.ac.in
+  position: Associate Professor
+  organization: National Institute of Technology, Rourkela
+  sub_organization: Department of Computer Science and Engineering
+  google_scholar: https://scholar.google.com/citations?user=qGuy8goAAAAJ&hl=en
+
+- name: Dr. Aviral Shrivastava
+  linkedin: aviral
+  email: Aviral.Shrivastava@asu.edu
+  position: Professor
+  organization: Arizona State University
+  sub_organization: School of Computing and Augmented Intelligence
+  github: aviralshri
+  orcid: https://orcid.org/0000-0002-1075-897X
+  website: https://labs.engineering.asu.edu/mps-lab/person/aviral-shrivastava/
+  google_scholar: https://scholar.google.com/citations?user=zlzK-v0AAAAJ&hl=en
