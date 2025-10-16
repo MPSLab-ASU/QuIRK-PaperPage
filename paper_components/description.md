@@ -1,48 +1,26 @@
+Kolmogorov-Arnold Networks (KANs) were introduced as a class of networks based on the Kolmogorov-Arnold Representation Theorem (KART) and promised to be more efficient in smaller function learning tasks than Deep Neural Networks (DNNs). According to KART, a multivariate continuous function f on a bounded domain can be written as a finite composition of univariate functions.
 
-## Math Demo
-$$ \alpha = \beta $$
+$$
+    f(x_1,x_2, \dots , x_n) = \sum_{q=1}^{2n+1} \Phi_q \left( \sum_{p=1}^{n} \phi_{q,p}(x_p) \right)
+$$
 
-## Normal Code
-This is an academic paper project page template.
+Where $f: [0,1]^n \rightarrow \mathbb{R}$ defines the outer function and $ \phi_{q,p} : [0,1] \rightarrow \mathbb{R}$ and $\Phi_q : \mathbb{R} \rightarrow \mathbb{R}$ define the inner functions used for approximation. A major challenge when applying this theorem to machine learning (ML) is that the 1-D functions $\phi_{q,p}$ might be non-smooth or even fractal. However, \citeauthor{KAN_2024} argued that in the average case most functions in science are smooth and have sparse composite structure. This allows us to use smooth functions, in their case B-Splines, as the basis to create a network that can scale to arbitrary breadth and depths.
 
+The choice of B-Splines as the basis for KANs has proven to be effective, but, they are not the only functions we may use in order to construct KAN models. In principle, we could use any univariate universal function approximator as the basis for a KAN model. However, for practical purposes we would like these univariate functions to be expressive, compact and easy to compute. Data Re-Uploading (DR) circuits are a class of QML algorithms that fit these characteristics and hence can form a promising new basis for KAN models.
 
-Example project pages built using this template are:
-- https://www.vision.huji.ac.il/deepsim/
-- https://www.vision.huji.ac.il/3d_ads/
-- https://www.vision.huji.ac.il/ssrl_ad/
-- https://www.vision.huji.ac.il/conffusion/
+Quantum Machine Learning (QML), is a field of machine learning which seeks to exploit the special properties of quantum circuits in order to create new more efficient ML models. Pérez-Salinas et al, introduced the Data Re-Uploading Classifier, which was proven to be a Universal Classifier based on the **Universal Approximation Theorem** of DNNs.
 
+$$
+    h(\vec{x}) = \sum_{i=1}^{N} \alpha_i \cdot \sigma(\vec{w_i} \cdot \vec{x} + b_i) \; \quad ; \alpha_i, b_i \in \mathbb{R}
+$$
 
-## Start using the template
-To start using the template click on `Use this Template`.
+Specifically the authors used a corollary which stated that $\sigma$ could be a non-constant finite linear combination of periodic functions. This allowed DR models to create universal function approximators using rotational quantum gates. Critically, this proof also makes DR models eligible univariate functions to utilize as building blocks for KANs.
 
-The template uses html for controlling the content and css for controlling the style. 
-To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
+We utilize the universal approximation functionality of DR models in order to construct a new variant of the KAN model called QuIRK's. QuIRK incorporate DR models in place of B-Splines while maintaining the same scalability in depths and breadth structure as KANs. Due to the inherent higher dimensionality of qubits  compared to real-valued univariate functions, DR models are far more expressively compact. This increased dimensionality is due to two main factors - (1) The vectorized nature of qubits caused by superposition. (2) The complex-valued nature of qubit states. This allows our DR based QuIRK to use fewer trainable parameters and smaller model sizes when compared to KANs for a similar level of accuracy as shown experimentally in the results section.
 
-**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
+Another important aspect of QuIRK's is that they can be easily accelerated on GPUs. We refer to our model as `*Quantum Inspired*' because, although we utilize a QML model, the structure of our network does not require any quantum computers for training or inference. Due to the lack of entanglement, all our circuits are factorizable into single qubit circuits and can be computed using $2\times 2$ matrix multiplications (matmuls) on simulators. These matmul operations are far more optimized for modern GPUs as compared to B-Splines used by KANs. This allows for better computational scaling as compared to KANs. Additionally, the use of these quantum inspired mathematical structures allows us to leverage the expanded feature space of  quantum systems. It is important to note that current backpropagation implementations and optimizers struggle with complex numbers and hence we leverage the capabilities of quantum simulators in this domain to train our models.
 
-## Components
-- Teaser video
-- Images Carousel
-- Youtube embedding
-- Video Carousel
-- PDF Poster
-- Bibtex citation
-
-## Tips:
-- The `index.html` file contains comments instructing you what to replace, you should follow these comments.
-- The `meta` tags in the `index.html` file are used to provide metadata about your paper 
-(e.g. helping search engine index the website, showing a preview image when sharing the website, etc.)
-- The resolution of images and videos can usually be around 1920-2048, there rarely a need for better resolution that take longer to load. 
-- All the images and videos you use should be compressed to allow for fast loading of the website (and thus better indexing by search engines). For images, you can use [TinyPNG](https://tinypng.com), for videos you can need to find the tradeoff between size and quality.
-- When using large video files (larger than 10MB), it's better to use youtube for hosting the video as serving the video from the website can take time.
-- Using a tracker can help you analyze the traffic and see where users came from. [statcounter](https://statcounter.com) is a free, easy to use tracker that takes under 5 minutes to set up. 
-- This project page can also be made into a github pages website.
-- Replace the favicon to one of your choosing (the default one is of the Hebrew University). 
-- Suggestions, improvements and comments are welcome, simply open an issue or contact me. You can find my contact information at [https://pages.cs.huji.ac.il/eliahu-horwitz/](https://pages.cs.huji.ac.il/eliahu-horwitz/)
-
-## Acknowledgments
-Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
-
-## Website License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+Therefore, the main features of the \quirk model can be summarized as follows:
+1. Data re-uploading based scalable network architecture,
+2. Parameter efficient KAN model leveraging the higher dimensionality of quantum systems,
+3. Computationally scalable due to simple $2 \times 2$ matrix multiplication based implementation.

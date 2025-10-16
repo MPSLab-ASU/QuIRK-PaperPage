@@ -1,5 +1,11 @@
-- filename: stock1.JPG
-  caption: Random Caption 1 
+- filename: QuIRK_params.png
+  caption: Table 1 - QuIRK matches or outperforms KANs while using significantly less parameters.
 
-- filename: stock2.JPG
-  caption: Random Caption 2 with **bold** text 
+- filename: runtime_all.png
+  caption: Figure 5- Runtime scaling of with increasing number of qubits across different backends using batch 8- 100 dim data on a 32-thread CPU and A6000 GPU. Tensor Network simulations greatly outperform the state-vector simulator for larger qubit counts but are worse for smaller qubit counts.
+
+- filename: approx_comp_row.png
+  caption: Figure 6- Parameter efficiency and function fitting capabilities of B-Splines vs Data Re-Uploading models. We compare against 2 B-Spline models with smoothness 1 and 0.05 resp. It is clear from the image that our DR circuit performs much better than the S=1 B-Spline and is slightly worse than the S=0.05 B-Spline.
+
+- filename: Interpretability.png
+  caption: Figure 7- A single layer 2 unit QuIRK with a simple sum on the output approximating the function $f(x, y) = x^2 - y^2$. We can see that the outputs of the DR units can be fit to 1-D polynomials. We can then analyze the polynomials to construct a simplified output.

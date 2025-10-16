@@ -19,8 +19,8 @@ arXiv: https://arxiv.org/abs/2510.08650 # ArXiV Publication Link Here
 favicon: assets/images/MPS_Lab.ico
 
 main_media:
-    source: https://labs.engineering.asu.edu/mps-lab/wp-content/uploads/sites/8/2019/12/dataflow-accelerators-768x251.png
-    caption: Executing applications on dataflow accelerators require explicit management of computational, communication, and memory resource
+    source: assets/images/Network_Full.png
+    caption: QuIRK Macro architecture. Each incoming edge to a QuIRK layer is a single qubit DR circuit. The output of each hidden QuIRK layer ($h^l_u$) is then rescaled to the range [0, π] creating node $h'^l_u$. The output of the network is a QuIRK layer with a single unit followed by an optional dense layer which scales the output to the desired range.
 
 ######################## DO NOT EDIT BELOW THIS LINE ########################################
 
