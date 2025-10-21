@@ -20,7 +20,7 @@ We utilize the universal approximation functionality of DR models in order to co
 
 Another important aspect of QuIRK's is that they can be easily accelerated on GPUs. We refer to our model as `*Quantum Inspired*' because, although we utilize a QML model, the structure of our network does not require any quantum computers for training or inference. Due to the lack of entanglement, all our circuits are factorizable into single qubit circuits and can be computed using $2\times 2$ matrix multiplications (matmuls) on simulators. These matmul operations are far more optimized for modern GPUs as compared to B-Splines used by KANs. This allows for better computational scaling as compared to KANs. Additionally, the use of these quantum inspired mathematical structures allows us to leverage the expanded feature space of  quantum systems. It is important to note that current backpropagation implementations and optimizers struggle with complex numbers and hence we leverage the capabilities of quantum simulators in this domain to train our models.
 
-Therefore, the main features of the \quirk model can be summarized as follows:
+Therefore, the main features of the QuIRK model can be summarized as follows:
 1. Data re-uploading based scalable network architecture,
 2. Parameter efficient KAN model leveraging the higher dimensionality of quantum systems,
 3. Computationally scalable due to simple $2 \times 2$ matrix multiplication based implementation.
